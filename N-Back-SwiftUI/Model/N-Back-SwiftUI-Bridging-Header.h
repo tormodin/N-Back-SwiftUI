@@ -8,5 +8,6 @@
 #ifndef N_Back_SwiftUI_Bridging_Header_h
 #define N_Back_SwiftUI_Bridging_Header_h
 
+#import "nback.h"
 
 #endif /* N_Back_SwiftUI_Bridging_Header_h */

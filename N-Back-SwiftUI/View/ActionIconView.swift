@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct ActionIconView: View {
+    @EnvironmentObject var theViewModel : N_Back_SwiftUIVM
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .center) {
+            Text("START GAME").font(.largeTitle)
+            HStack(spacing: 30){
+                Button {
+                    theViewModel.soundClick()
+                } label: {
+                    SoundIconView()
+                }
+                Button {
+                    theViewModel.imageClick()
+                } label: {
+                    ImageIconView()
+                }
+            }
+            
+        }
     }
 }
 
 struct ActionIconView_Previews: PreviewProvider {
     static var previews: some View {
         ActionIconView()
+            .environmentObject(N_Back_SwiftUIVM())
     }
 }

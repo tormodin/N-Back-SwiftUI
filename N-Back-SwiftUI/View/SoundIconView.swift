@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IconView: View {
+struct SoundIconView: View {
     var body: some View {
         HStack {
             Image(systemName: "speaker.wave.3.fill")
@@ -23,8 +23,8 @@ struct IconView: View {
     }
 }
 
-struct IconView_Previews: PreviewProvider {
+struct SoundIconView_Previews: PreviewProvider {
     static var previews: some View {
-        IconView()
+        SoundIconView()
     }
 }

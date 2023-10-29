@@ -30,15 +30,27 @@ extension View {
 }
 
 struct ContentView: View {
-    @EnvironmentObject var theViewMode : N_Back_SwiftUIVM
+    @EnvironmentObject var theViewModel : N_Back_SwiftUIVM
     @State private var orientation = UIDeviceOrientation.portrait
     
     var body: some View {
-        VStack {
+        VStack() {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            
+            Text("High-Score \(theViewModel.highScore)")
+            Spacer()
+            Button {
+                theViewModel.newHighScoreValue()
+            } label: {
+                Text("Generate eventValue")
+                    .font(.title)
+            }
+            .padding()
+            Spacer()
+            ActionIconView()
+            
         }
         .padding()
     }
@@ -48,20 +60,23 @@ struct ContentView: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_Previews:     {
     static var previews: some View {
-        ForEach(["iPhone SE (3rd generation)", "iPhone 14 Pro Max"], id: \.self) { deviceName in
-                       ContentView()
-                            .previewDevice(PreviewDevice(rawValue: deviceName))
-                            .previewDisplayName(deviceName)
-                            .environmentObject(N_Back_SwiftUIVM())
-                  }
+        Group{
+            ForEach(["iPhone SE (3rd generation)", "iPhone 14 Pro Max"], id: \.self) { deviceName in
+                           ContentView()
+                                .previewDevice(PreviewDevice(rawValue: deviceName))
+                                .previewDisplayName(deviceName)
+                                .environmentObject(N_Back_SwiftUIVM())
+                      }
+            
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
+                .previewDisplayName("iPhone 14 Pro Max Landscape")
+                .environmentObject(N_Back_SwiftUIVM())
+                .previewInterfaceOrientation(.landscapeRight)
+        }
         
-        ContentView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
-            .previewDisplayName("iPhone 14 Pro Max Landscape")
-            .environmentObject(N_Back_SwiftUIVM())
-            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 

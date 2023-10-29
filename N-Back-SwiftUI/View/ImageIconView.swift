@@ -1,5 +1,5 @@
 //
-//  IconView.swift
+//  ImageIconView.swift
 //  N-Back-SwiftUI
 //
 //  Created by Jonas Willén on 2023-10-03.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IconView: View {
+struct ImageIconView: View {
     var body: some View {
         HStack {
             Image(systemName: "eye")
@@ -23,8 +23,8 @@ struct IconView: View {
     }
 }
 
-struct IconView_Previews: PreviewProvider {
+struct ImageIconView_Previews: PreviewProvider {
     static var previews: some View {
-        IconView()
+        ImageIconView()
     }
 }
